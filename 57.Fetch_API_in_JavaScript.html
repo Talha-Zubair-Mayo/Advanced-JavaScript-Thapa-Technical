@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch API in JavaScript</title>
+  </head>
+  <body>
+    <p id="apidata"></p>
+    <script>
+      fetch("https://api.covid19api.com/summary")
+        .then((apidata) => {
+          //console.log(apidata);
+          return apidata.json();
+        })
+        .then((actualdata) => {
+          console.log(actualdata.Countries[128]);
+
+          const mydata = actualdata.Countries[128];
+          document.getElementById(
+            "apidata"
+          ).innerHTML = `The Name Of country is ${mydata.Country}.
+             The New Confirmed Cases Are ${mydata.NewConfirmed}. 
+             The New Deaths Are ${mydata.NewDeaths}. 
+             The Total Deaths Are ${mydata.TotalDeaths}.
+              The Total Confirmed Cases Are ${mydata.TotalConfirmed}. 
+            The New Recovered Cases Are ${mydata.NewRecovered}`;
+        })
+        .catch((error) => {
+          console.log(`The Error: ${error}`);
+        });
+    </script>
+  </body>
+</html>

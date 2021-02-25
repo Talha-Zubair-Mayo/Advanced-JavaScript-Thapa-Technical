@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synchronous vs Asynchronous Programming</title>
+</head>
+<body>
+    <script>
+
+        // Synchronous Programing
+
+        // const fun2 = () =>
+        // {
+        //     console.log(`Function 2 Is Starting`);
+
+        // }
+        // const fun1 = () => 
+        // {
+        //         console.log(`Function 1 is Starting`);
+        //         fun2();
+        //         console.log(`Function 1 is Ending`);
+        // }
+
+        // fun1();
+
+        
+        // Asynchronous Programming
+        const fun2 = () =>
+        {
+            setTimeout(()=>
+            {
+                console.log(`Function 2 Is Starting`);
+            },300)
+         
+
+        }
+        const fun1 = () => 
+        {
+                console.log(`Function 1 is Starting`);
+                fun2();
+                console.log(`Function 1 is Ending`);
+        }
+
+        fun1();
+
+    </script>
+</body>
+</html>

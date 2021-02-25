@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback Hell</title>
+</head>
+<body>
+    
+   <script>
+
+    const GetRoll = () =>{
+
+        setTimeout(()=>
+        {
+            console.log(`API Getting Roll Number`);
+
+            let roll_no = [1,2,3,4,5,6,7];
+
+            console.log(roll_no);
+
+            setTimeout((rollno)=>{
+                const biodata = {
+
+                    name : 'Talha',
+                    age : 26
+                }
+                console.log(`Hello ! My Name Is ${biodata.name}. And i'm ${biodata.age} Years Old. My roll number is ${rollno}`);
+
+                setTimeout((name)=>{
+                 
+                    biodata.gender = "MALE";
+                    console.log(`Hello ! My Name Is ${biodata.name}. And i'm ${biodata.age} Years Old. My roll number is ${rollno} , And I'm ${biodata.gender}`);
+
+                },3000, biodata.name )
+
+            }, 2000 , roll_no[1]);
+        } , 3000)
+
+        }
+
+         GetRoll();
+
+   </script>
+</body>
+</html>
